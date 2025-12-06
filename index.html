@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>welcome to our EPIC website!!!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <marquee behavior="scroll" direction="left">🔥 GUARDIA ON TOP 🔥</marquee>
+    
+    <div class="container">
+        <h1 class="main-title">WELCOME TO THE OFFICIAL GUARDIA WEBSITE</h1>
+        <h2>est. 2021</h2>
+        
+        <nav class="navbar">
+            <button onclick="showPage('home')" class="nav-btn">HOME</button>
+            <button onclick="showPage('history')" class="nav-btn">HISTORY</button>
+            <button onclick="showPage('game')" class="nav-btn">GAME DOWNLOAD</button>
+            <button onclick="showPage('blog')" class="nav-btn">BLOG</button>
+        </nav>
+
+        <div id="home" class="page active">
+            <p><strong>visitor counter:</strong> <span id="visitor-count">69420</span></p>
+        </div>
+
+        <div id="history" class="page">
+            <h2>📜 OUR LEGENDARY HISTORY 📜</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>2020 - The Beginning</h3>
+                    <p>we met and it was pretty cool i guess</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>2021 - The Incident</h3>
+                    <p>we dont talk about what happened at dennys</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>2022 - Golden Age</h3>
+                    <p>steve brought pizza to that one thing and everyone was happy</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>2023 - The Discord Era</h3>
+                    <p>we got banned from 3 servers but made our own so its fine</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>2021 - Present Day</h3>
+                    <p>still going strong baby!!!</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="game" class="page">
+            <h2>🎮 DOWNLOAD OUR GAME 🎮</h2>
+            <div class="game-section">
+                <h3>SUPER MEGA FRIEND QUEST</h3>
+                <p>its basically just minecraft but worse</p>
+                <div class="download-box">
+                    <p><strong>Version:</strong> 0.0.1 alpha (very buggy)</p>
+                    <p><strong>Size:</strong> like 2gb or something idk</p>
+                    <p><strong>Requirements:</strong> a computer probably</p>
+                    <button class="download-btn" onclick="fakeDownload()">DOWNLOAD NOW!!!</button>
+                    <p id="download-msg"></p>
+                </div>
+                <p class="warning">⚠️ WARNING: may cause your computer to make weird noises</p>
+            </div>
+        </div>
+
+        <div id="blog" class="page">
+            <h2>📝 BLOG (aka random thoughts) 📝</h2>
+            <div class="blog-post">
+                <h3>Why Pizza is Better Than Everything</h3>
+                <p class="date">Posted: yesterday</p>
+                <p>ok so basically pizza is amazing and if you disagree ur wrong. thanks for coming to my ted talk.</p>
+            </div>
+            <div class="blog-post">
+                <h3>Top 10 Reasons Our Friend Group is Epic</h3>
+                <p class="date">Posted: last week</p>
+                <p>1. we're cool<br>2. we're awesome<br>3. uhhh<br>4. i ran out of ideas<br>5-10. see reasons 1-4</p>
+            </div>
+            <div class="blog-post">
+                <h3>I Learned HTML Today</h3>
+                <p class="date">Posted: 5 minutes ago</p>
+                <p>look at this sick website i made. im basically a professional now.</p>
+            </div>
+        </div>
+
+        <footer>
+            <marquee behavior="alternate">⭐ THANKS FOR VISITING ⭐</marquee>
+            <p>© 2026 Guardia. all rights reserved</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

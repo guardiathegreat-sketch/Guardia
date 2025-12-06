@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>welcome to our EPIC website!!!</title>
+    <style>
+        body {
+            background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00);
+            background-size: 400% 400%;
+            animation: gradientShift 5s ease infinite;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            margin: 0;
+            padding: 20px;
+            color: #000;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        marquee {
+            background: red;
+            color: yellow;
+            padding: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            border: 5px solid blue;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border: 10px dotted purple;
+            box-shadow: 15px 15px 0px rgba(0,0,0,0.5);
+        }
+
+        .main-title {
+            text-align: center;
+            color: red;
+            font-size: 48px;
+            text-shadow: 3px 3px 0px blue, 6px 6px 0px green;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        h2 {
+            color: blue;
+            text-decoration: underline wavy;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            background: linear-gradient(180deg, lime, green);
+            color: white;
+            border: 3px solid black;
+            padding: 15px 25px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: 'Comic Sans MS', cursive;
+            transition: transform 0.1s;
+        }
+
+        .nav-btn:hover {
+            transform: scale(1.1) rotate(2deg);
+            background: linear-gradient(180deg, yellow, orange);
+            color: black;
+        }
+
+        .nav-btn:active {
+            transform: scale(0.95);
+        }
+
+        .page {
+            display: none;
+            padding: 20px;
+            border: 5px solid;
+            border-color: red blue green orange;
+            margin: 20px 0;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .page.active {
+            display: block;
+            animation: slideIn 0.5s;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .timeline-item {
+            background: linear-gradient(90deg, #ffccff, #ccffff);
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 10px solid purple;
+            border-radius: 0 15px 15px 0;
+        }
+
+        .timeline-item h3 {
+            color: darkviolet;
+            margin-top: 0;
+        }
+
+        .game-section {
+            text-align: center;
+        }
+
+        .download-box {
+            background: #ffeb3b;
+            border: 5px dashed red;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 400px;
+        }
+
+        .download-btn {
+            background: red;
+            color: white;
+            border: 5px solid black;
+            padding: 20px 40px;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: 'Comic Sans MS', cursive;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .download-btn:hover {
+            background: darkred;
+            transform: scale(1.1);
+        }
+
+        .warning {
+            color: red;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .blog-post {
+            background: linear-gradient(135deg, #e0f7fa, #fff9c4);
+            padding: 20px;
+            margin: 20px 0;
+            border: 3px solid #333;
+            border-radius: 10px;
+            box-shadow: 5px 5px 0px rgba(0,0,0,0.3);
+        }
+
+        .blog-post h3 {
+            color: #d32f2f;
+            margin-top: 0;
+        }
+
+        .date {
+            color: #666;
+            font-style: italic;
+            font-size: 14px;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            padding: 20px;
+            background: black;
+            color: lime;
+            border: 5px solid red;
+        }
+
+        footer marquee {
+            background: blue;
+            color: yellow;
+        }
+
+        img {
+            display: block;
+            margin: 20px auto;
+            border: 5px solid rainbow;
+        }
+
+        #visitor-count {
+            color: red;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        #download-msg {
+            margin-top: 15px;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <marquee behavior="scroll" direction="left">🔥 WELCOME TO THE MOST EPIC WEBSITE EVER 🔥</marquee>
+    
+    <div class="container">
+        <h1 class="main-title">OUR AWESOME FRIEND GROUP</h1>
+        <h2>est. 2024 or whatever</h2>
+        
+        <nav class="navbar">
+            <button onclick="showPage('home')" class="nav-btn">HOME</button>
+            <button onclick="showPage('history')" class="nav-btn">HISTORY</button>
+            <button onclick="showPage('game')" class="nav-btn">GAME DOWNLOAD</button>
+            <button onclick="showPage('blog')" class="nav-btn">BLOG</button>
+        </nav>
+
+        <div id="home" class="page active">
+            <h2>Welcome 2 our site!!!</h2>
+            <p>this is where we hang out online lol</p>
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbWp0ZnZ5YzBxNjBxZnZ5YzBxNjBxZnZ5YzBxNjBxZnZ5YzBxNjBx/3o7btPCcdNniyf0ArS/giphy.gif" alt="cool gif" style="max-width: 300px;">
+            <p><strong>visitor counter:</strong> <span id="visitor-count">69420</span></p>
+        </div>
+
+        <div id="history" class="page">
+            <h2>📜 OUR LEGENDARY HISTORY 📜</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>2020 - The Beginning</h3>
+                    <p>we met and it was pretty cool i guess</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>2021 - The Incident</h3>
+                    <p>we dont talk about what happened at dennys</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>2022 - Golden Age</h3>
+                    <p>steve brought pizza to that one thing and everyone was happy</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>2023 - The Discord Era</h3>
+                    <p>we got banned from 3 servers but made our own so its fine</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>2024 - Present Day</h3>
+                    <p>still going strong baby!!!</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="game" class="page">
+            <h2>🎮 DOWNLOAD OUR GAME 🎮</h2>
+            <div class="game-section">
+                <h3>SUPER MEGA FRIEND QUEST</h3>
+                <p>its basically just minecraft but worse</p>
+                <div class="download-box">
+                    <p><strong>Version:</strong> 0.0.1 alpha (very buggy)</p>
+                    <p><strong>Size:</strong> like 2gb or something idk</p>
+                    <p><strong>Requirements:</strong> a computer probably</p>
+                    <button class="download-btn" onclick="fakeDownload()">DOWNLOAD NOW!!!</button>
+                    <p id="download-msg"></p>
+                </div>
+                <p class="warning">⚠️ WARNING: may cause your computer to make weird noises</p>
+            </div>
+        </div>
+
+        <div id="blog" class="page">
+            <h2>📝 BLOG (aka random thoughts) 📝</h2>
+            <div class="blog-post">
+                <h3>Why Pizza is Better Than Everything</h3>
+                <p class="date">Posted: yesterday</p>
+                <p>ok so basically pizza is amazing and if you disagree ur wrong. thanks for coming to my ted talk.</p>
+            </div>
+            <div class="blog-post">
+                <h3>Top 10 Reasons Our Friend Group is Epic</h3>
+                <p class="date">Posted: last week</p>
+                <p>1. we're cool<br>2. we're awesome<br>3. uhhh<br>4. i ran out of ideas<br>5-10. see reasons 1-4</p>
+            </div>
+            <div class="blog-post">
+                <h3>I Learned HTML Today</h3>
+                <p class="date">Posted: 5 minutes ago</p>
+                <p>look at this sick website i made. im basically a professional now.</p>
+            </div>
+        </div>
+
+        <footer>
+            <marquee behavior="alternate">⭐ THANKS FOR VISITING ⭐</marquee>
+            <p>© 2024 our friend group. all rights reserved or whatever</p>
+            <p>best viewed on netscape navigator</p>
+        </footer>
+    </div>
+
+    <script>
+        // page navigation
+        function showPage(pageName) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            const selectedPage = document.getElementById(pageName);
+            if (selectedPage) {
+                selectedPage.classList.add('active');
+            }
+        }
+
+        // fake visitor counter that goes up randomly
+        function updateVisitorCount() {
+            const counter = document.getElementById('visitor-count');
+            if (counter) {
+                let count = parseInt(counter.textContent);
+                count += Math.floor(Math.random() * 10) + 1;
+                counter.textContent = count;
+            }
+        }
+
+        // update visitor count every 3 seconds
+        setInterval(updateVisitorCount, 3000);
+
+        // fake download function
+        function fakeDownload() {
+            const messages = [
+                "downloading... just kidding lol",
+                "ERROR: file not found (we never made the game)",
+                "downloading... 0% complete... still 0%... yeah its not real",
+                "VIRUS DETECTED jk there's nothing to download",
+                "download complete! (it downloaded nothing)",
+                "connecting to server... server doesn't exist lmao"
+            ];
+            
+            const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+            const msgElement = document.getElementById('download-msg');
+            msgElement.textContent = randomMsg;
+            
+            // change button text temporarily
+            const btn = document.querySelector('.download-btn');
+            const originalText = btn.textContent;
+            btn.textContent = "DOWNLOADING...";
+            
+            setTimeout(() => {
+                btn.textContent = originalText;
+            }, 2000);
+        }
+
+        // random alert on page load (annoying but goofy)
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const shouldAlert = Math.random() > 0.5;
+                if (shouldAlert) {
+                    alert("welcome to our epic website!!! 😎");
+                }
+            }, 1000);
+        });
+
+        // easter egg: konami code
+        let konamiCode = [];
+        const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+
+        document.addEventListener('keydown', (e) => {
+            konamiCode.push(e.key);
+            konamiCode = konamiCode.slice(-10);
+            
+            if (konamiCode.join(',') === konamiSequence.join(',')) {
+                document.body.style.transform = 'rotate(180deg)';
+                alert("congrats u found the secret code!!! now everything is upside down lol");
+                setTimeout(() => {
+                    document.body.style.transform = 'rotate(0deg)';
+                }, 5000);
+            }
+        });
+
+        // make title blink colors
+        function randomColor() {
+            const colors = ['red', 'blue', 'green', 'purple', 'orange', 'pink'];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        setInterval(() => {
+            const title = document.querySelector('.main-title');
+            if (title) {
+                title.style.color = randomColor();
+            }
+        }, 500);
+    </script>
+</body>
+</html>
