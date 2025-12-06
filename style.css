@@ -142,6 +142,30 @@ h2 {
     animation: pulse 1s infinite;
 }
 
+.downloadMac-btn {
+    background: rgb(255, 255, 255);
+    color: white;
+    border: 5px solid black;
+    padding: 20px 40px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Comic Sans MS', cursive;
+    animation: pulse 1s infinite;
+}
+
+.downloadLinux-btn {
+    background: rgb(160, 0, 0);
+    color: white;
+    border: 5px solid black;
+    padding: 20px 40px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Comic Sans MS', cursive;
+    animation: pulse 1s infinite;
+}
+
 @keyframes pulse {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.05); }
