@@ -50,7 +50,7 @@ function WindowsDownload() {
     // Create a hidden link and click it
     const link = document.createElement('a');
     link.href = 'https://github.com/guardiathegreat-sketch/Guardia/blob/main/WinBA.zip';
-    link.download = 'Windows-BraydonsAdventure.zip';
+    link.download = 'WinBA.zip';
     link.style.display = 'none';
     document.body.appendChild(link);
     link.click();
@@ -93,4 +93,5 @@ setInterval(() => {
     }
 
 }, 500);
+
 
