@@ -94,4 +94,96 @@ setInterval(() => {
 
 }, 500);
 
+// CHATBOT FUNCTIONS
+let chatbotOpen = false;
 
+function toggleChatbot() {
+    const container = document.getElementById('chatbot-container');
+    chatbotOpen = !chatbotOpen;
+    
+    if (chatbotOpen) {
+        container.classList.remove('chatbot-closed');
+        container.classList.add('chatbot-open');
+        // Add welcome message if first time opening
+        const messagesDiv = document.getElementById('chatbot-messages');
+        if (messagesDiv.children.length === 0) {
+            addBotMessage("Hello friend! I am Rajesh from Indian tech support. How may I help you today? 🙏");
+        }
+    } else {
+        container.classList.remove('chatbot-open');
+        container.classList.add('chatbot-closed');
+    }
+}
+
+function addBotMessage(message) {
+    const messagesDiv = document.getElementById('chatbot-messages');
+    const botMsg = document.createElement('div');
+    botMsg.className = 'bot-message';
+    botMsg.textContent = message;
+    messagesDiv.appendChild(botMsg);
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+}
+
+function addUserMessage(message) {
+    const messagesDiv = document.getElementById('chatbot-messages');
+    const userMsg = document.createElement('div');
+    userMsg.className = 'user-message';
+    userMsg.textContent = message;
+    messagesDiv.appendChild(userMsg);
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+}
+
+function getBotResponse(userMessage) {
+    const msg = userMessage.toLowerCase();
+    
+    // Simple responses based on keywords
+    if (msg.includes('hello') || msg.includes('hi') || msg.includes('hey')) {
+        return "Hello friend! Very nice to meet you! How can I be helping you today? 🙏";
+    } else if (msg.includes('help') || msg.includes('problem')) {
+        return "No worries friend! First, have you tried turning it off and on again? This fixes 99.9% of all problems!";
+    } else if (msg.includes('download') || msg.includes('game')) {
+        return "Ah yes! Our game is very good! Top quality! Just click the download button and your computer will be very happy!";
+    } else if (msg.includes('guardia')) {
+        return "Guardia is number one! Best of the best! They dominate everything since 2021! Very legendary!";
+    } else if (msg.includes('thank')) {
+        return "No problem friend! Always happy to help! Please come again! 🙏";
+    } else if (msg.includes('bye') || msg.includes('goodbye')) {
+        return "Goodbye friend! Have a very nice day! Please come back anytime! 🙏";
+    } else if (msg.includes('who are you') || msg.includes('your name')) {
+        return "I am Rajesh Kumar from Indian tech support! I am here 24/7 to help you with any questions!";
+    } else if (msg.includes('computer') || msg.includes('pc')) {
+        return "Computer problems? No worries! First step is always restart. Second step is also restart. Very effective method!";
+    } else {
+        const randomResponses = [
+            "I see I see... very interesting question friend! Let me consult my superior knowledge base...",
+            "Ah yes this is common issue! Many people ask this same thing!",
+            "Very good question friend! The answer is quite simple actually...",
+            "Hmm... Have you checked if everything is plugged in properly first? This is step number one!",
+            "Excellent! I am understanding your problem! The solution is coming to my mind now..."
+        ];
+        return randomResponses[Math.floor(Math.random() * randomResponses.length)];
+    }
+}
+
+function sendMessage() {
+    const input = document.getElementById('chatbot-input');
+    const message = input.value.trim();
+    
+    if (message === '') return;
+    
+    // Add user message
+    addUserMessage(message);
+    input.value = '';
+    
+    // Simulate typing delay and add bot response
+    setTimeout(() => {
+        const response = getBotResponse(message);
+        addBotMessage(response);
+    }, 800);
+}
+
+function handleChatKeypress(event) {
+    if (event.key === 'Enter') {
+        sendMessage();
+    }
+}
