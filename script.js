@@ -11,18 +11,33 @@ function showPage(pageName) {
     }
 }
 
-// fake visitor counter that goes up randomly
-function updateVisitorCount() {
+// real visitor counter using storage
+async function initVisitorCount() {
     const counter = document.getElementById('visitor-count');
-    if (counter) {
-        let count = parseInt(counter.textContent);
-        count += Math.floor(Math.random() * 10) + 1;
+    if (!counter) return;
+    
+    try {
+        // get current count
+        let result = await window.storage.get('visitor-count', true);
+        let count = result ? parseInt(result.value) : 0;
+        
+        // increment by 1 for this visit
+        count += 1;
+        
+        // save new count
+        await window.storage.set('visitor-count', count.toString(), true);
+        
+        // display it
         counter.textContent = count;
+    } catch (error) {
+        // if storage fails, just show a default number
+        counter.textContent = '1337';
+        console.log('Storage not available');
     }
 }
 
-// update visitor count every 3 seconds
-setInterval(updateVisitorCount, 3000);
+// initialize counter when page loads
+window.addEventListener('load', initVisitorCount);
 
 // fake download function
 function fakeDownload() {
@@ -87,4 +102,5 @@ setInterval(() => {
     if (title) {
         title.style.color = randomColor();
     }
+
 }, 500);
