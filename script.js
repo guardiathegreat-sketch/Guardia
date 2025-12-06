@@ -39,7 +39,7 @@ async function initVisitorCount() {
 // initialize counter when page loads
 window.addEventListener('load', initVisitorCount);
 
-function fakeDownload() {
+function WindowsDownload() {
     const msgElement = document.getElementById('download-msg');
     const btn = document.querySelector('.download-btn');
     const originalText = btn.textContent;
@@ -49,8 +49,8 @@ function fakeDownload() {
     
     // Create a hidden link and click it
     const link = document.createElement('a');
-    link.href = 'https://github.com/YOURUSERNAME/YOURREPO/releases/download/v1.0/game.zip';
-    link.download = 'SUPER_MEGA_FRIEND_QUEST.zip';
+    link.href = 'https://github.com/YOURUSERNAME/YOURREPO/releases/download/v1.0/WinBA.zip';
+    link.download = 'Windows-BraydonsAdventure.zip';
     link.style.display = 'none';
     document.body.appendChild(link);
     link.click();
