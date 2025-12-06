@@ -137,7 +137,7 @@ function getBotResponse(userMessage) {
     const msg = userMessage.toLowerCase();
     
     // Simple responses based on keywords
-    if (msg.includes('hello') || msg.includes('hi') || msg.includes('hey')) || msg.includes('yo')){
+    if (msg.includes('hello') || msg.includes('hi') || msg.includes('hey')){
         return "Hello friend! Very nice to meet you! How can I be helping you today? 🙏";
     } else if (msg.includes('help') || msg.includes('problem')) {
         return "No worries friend! First, have you tried turning it off and on again? This fixes 99.9% of all problems!";
@@ -187,4 +187,5 @@ function handleChatKeypress(event) {
         sendMessage();
     }
 }
+
 
