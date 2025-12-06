@@ -1,210 +1,235 @@
-/* Chat Widget Styles */
-.chat-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    background: white;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    cursor: pointer;
-    border: none;
-    padding: 0;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    z-index: 1000;
+body {
+    background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00);
+    background-size: 400% 400%;
+    animation: gradientShift 5s ease infinite;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    margin: 0;
+    padding: 20px;
+    color: #000;
 }
 
-.chat-button:hover {
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+marquee {
+    background: red;
+    color: yellow;
+    padding: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    border: 5px solid blue;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border: 10px dotted purple;
+    box-shadow: 15px 15px 0px rgba(0,0,0,0.5);
+}
+
+.main-title {
+    text-align: center;
+    color: red;
+    font-size: 48px;
+    text-shadow: 3px 3px 0px blue, 6px 6px 0px green;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+h2 {
+    color: blue;
+    text-decoration: underline wavy;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.nav-btn {
+    background: linear-gradient(180deg, lime, green);
+    color: white;
+    border: 3px solid black;
+    padding: 15px 25px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Comic Sans MS', cursive;
+    transition: transform 0.1s;
+}
+
+.nav-btn:hover {
+    transform: scale(1.1) rotate(2deg);
+    background: linear-gradient(180deg, yellow, orange);
+    color: black;
+}
+
+.nav-btn:active {
+    transform: scale(0.95);
+}
+
+.page {
+    display: none;
+    padding: 20px;
+    border: 5px solid;
+    border-color: red blue green orange;
+    margin: 20px 0;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.page.active {
+    display: block;
+    animation: slideIn 0.5s;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.timeline-item {
+    background: linear-gradient(90deg, #ffccff, #ccffff);
+    padding: 15px;
+    margin: 15px 0;
+    border-left: 10px solid purple;
+    border-radius: 0 15px 15px 0;
+}
+
+.timeline-item h3 {
+    color: darkviolet;
+    margin-top: 0;
+}
+
+.game-section {
+    text-align: center;
+}
+
+.download-box {
+    background: #ffeb3b;
+    border: 5px dashed red;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 400px;
+}
+
+.downloadWin-btn {
+    background: rgb(24, 107, 231);
+    color: white;
+    border: 5px solid black;
+    padding: 20px 40px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Comic Sans MS', cursive;
+    animation: pulse 1s infinite;
+}
+
+.downloadMac-btn {
+    background: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: 5px solid black;
+    padding: 20px 40px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Comic Sans MS', cursive;
+    animation: pulse 1s infinite;
+}
+
+.downloadLinux-btn {
+    background: rgb(160, 0, 0);
+    color: white;
+    border: 5px solid black;
+    padding: 20px 40px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Comic Sans MS', cursive;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.download-btn:hover {
+    background: darkred;
     transform: scale(1.1);
 }
 
-.chat-button img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.warning {
+    color: red;
+    font-weight: bold;
+    font-style: italic;
 }
 
-.chat-window {
-    position: fixed;
-    bottom: 100px;
-    right: 20px;
-    width: 350px;
-    height: 500px;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-    display: none;
-    flex-direction: column;
-    overflow: hidden;
-    z-index: 999;
-}
-
-.chat-window.active {
-    display: flex;
-    animation: slideUp 0.3s ease;
-}
-
-@keyframes slideUp {
-    from {
-        transform: translateY(20px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-.chat-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+.blog-post {
+    background: linear-gradient(135deg, #e0f7fa, #fff9c4);
     padding: 20px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
+    margin: 20px 0;
+    border: 3px solid #333;
+    border-radius: 10px;
+    box-shadow: 5px 5px 0px rgba(0,0,0,0.3);
 }
 
-.chat-header img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 2px solid white;
+.blog-post h3 {
+    color: #d32f2f;
+    margin-top: 0;
 }
 
-.chat-header-text h3 {
-    font-size: 18px;
-    margin-bottom: 3px;
-}
-
-.chat-header-text p {
-    font-size: 12px;
-    opacity: 0.9;
-}
-
-.chat-messages {
-    flex: 1;
-    padding: 20px;
-    overflow-y: auto;
-    background: #f5f5f5;
-}
-
-.message {
-    margin-bottom: 15px;
-    animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.message.bot {
-    text-align: left;
-}
-
-.message.user {
-    text-align: right;
-}
-
-.message-content {
-    display: inline-block;
-    padding: 12px 16px;
-    border-radius: 18px;
-    max-width: 80%;
-    word-wrap: break-word;
-}
-
-.message.bot .message-content {
-    background: white;
-    color: #333;
-    border-bottom-left-radius: 4px;
-}
-
-.message.user .message-content {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    border-bottom-right-radius: 4px;
-}
-
-.chat-options {
-    padding: 15px;
-    background: white;
-    border-top: 1px solid #e0e0e0;
-}
-
-.option-button {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 8px;
-    border: 2px solid #667eea;
-    background: white;
-    color: #667eea;
-    border-radius: 25px;
-    cursor: pointer;
+.date {
+    color: #666;
+    font-style: italic;
     font-size: 14px;
-    transition: all 0.3s ease;
 }
 
-.option-button:hover {
-    background: #667eea;
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3);
+footer {
+    margin-top: 40px;
+    text-align: center;
+    padding: 20px;
+    background: black;
+    color: lime;
+    border: 5px solid red;
 }
 
-.option-button:last-child {
-    margin-bottom: 0;
+footer marquee {
+    background: blue;
+    color: yellow;
 }
 
-.typing-indicator {
-    display: none;
-    padding: 10px;
-    text-align: left;
-}
-
-.typing-indicator.active {
+img {
     display: block;
+    margin: 20px auto;
+    border: 5px solid rainbow;
 }
 
-.typing-dots {
-    display: inline-block;
-    padding: 12px 16px;
-    background: white;
-    border-radius: 18px;
-    border-bottom-left-radius: 4px;
+#visitor-count {
+    color: red;
+    font-weight: bold;
+    font-size: 24px;
 }
 
-.typing-dots span {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #999;
-    margin: 0 2px;
-    animation: typing 1.4s infinite;
-}
-
-.typing-dots span:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.typing-dots span:nth-child(3) {
-    animation-delay: 0.4s;
-}
-
-@keyframes typing {
-    0%, 60%, 100% {
-        transform: translateY(0);
-    }
-    30% {
-        transform: translateY(-10px);
-    }
+#download-msg {
+    margin-top: 15px;
+    font-weight: bold;
+    color: green;
 }
