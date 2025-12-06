@@ -39,29 +39,25 @@ async function initVisitorCount() {
 // initialize counter when page loads
 window.addEventListener('load', initVisitorCount);
 
-// fake download function
+// real download function
 function fakeDownload() {
-    const messages = [
-        "downloading... just kidding lol",
-        "ERROR: file not found (we never made the game)",
-        "downloading... 0% complete... still 0%... yeah its not real",
-        "VIRUS DETECTED jk there's nothing to download",
-        "download complete! (it downloaded nothing)",
-        "connecting to server... server doesn't exist lmao"
-    ];
-    
-    const randomMsg = messages[Math.floor(Math.random() * messages.length)];
     const msgElement = document.getElementById('download-msg');
-    msgElement.textContent = randomMsg;
-    
-    // change button text temporarily
     const btn = document.querySelector('.download-btn');
     const originalText = btn.textContent;
+    
     btn.textContent = "DOWNLOADING...";
+    msgElement.textContent = "Starting download...";
+    
+    // create download link
+    const link = document.createElement('a');
+    link.href = 'game.zip'; // this should be the path to your zip file
+    link.download = 'SUPER_MEGA_FRIEND_QUEST.zip';
+    link.click();
     
     setTimeout(() => {
         btn.textContent = originalText;
-    }, 2000);
+        msgElement.textContent = "Download started! Check your downloads folder 😎";
+    }, 1000);
 }
 
 
