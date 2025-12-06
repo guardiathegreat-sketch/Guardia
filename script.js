@@ -64,15 +64,6 @@ function fakeDownload() {
     }, 2000);
 }
 
-// random alert on page load (annoying but goofy)
-window.addEventListener('load', () => {
-    setTimeout(() => {
-        const shouldAlert = Math.random() > 0.5;
-        if (shouldAlert) {
-            alert("welcome to our epic website!!! 😎");
-        }
-    }, 1000);
-});
 
 // easter egg: konami code
 let konamiCode = [];
@@ -104,3 +95,4 @@ setInterval(() => {
     }
 
 }, 500);
+
