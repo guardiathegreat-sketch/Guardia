@@ -39,7 +39,6 @@ async function initVisitorCount() {
 // initialize counter when page loads
 window.addEventListener('load', initVisitorCount);
 
-// real download function
 function fakeDownload() {
     const msgElement = document.getElementById('download-msg');
     const btn = document.querySelector('.download-btn');
@@ -48,11 +47,14 @@ function fakeDownload() {
     btn.textContent = "DOWNLOADING...";
     msgElement.textContent = "Starting download...";
     
-    // create download link
+    // Create a hidden link and click it
     const link = document.createElement('a');
-    link.href = 'game.zip'; // this should be the path to your zip file
+    link.href = 'https://github.com/YOURUSERNAME/YOURREPO/releases/download/v1.0/game.zip';
     link.download = 'SUPER_MEGA_FRIEND_QUEST.zip';
+    link.style.display = 'none';
+    document.body.appendChild(link);
     link.click();
+    document.body.removeChild(link);
     
     setTimeout(() => {
         btn.textContent = originalText;
