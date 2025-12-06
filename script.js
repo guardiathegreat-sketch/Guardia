@@ -107,7 +107,7 @@ function toggleChatbot() {
         // Add welcome message if first time opening
         const messagesDiv = document.getElementById('chatbot-messages');
         if (messagesDiv.children.length === 0) {
-            addBotMessage("Hello friend! I am Rajesh from Indian tech support. How may I help you today? 🙏");
+            addBotMessage("Hello my friend! I am Akull from Indian tech support. How may I help you today? 🙏");
         }
     } else {
         container.classList.remove('chatbot-open');
@@ -137,7 +137,7 @@ function getBotResponse(userMessage) {
     const msg = userMessage.toLowerCase();
     
     // Simple responses based on keywords
-    if (msg.includes('hello') || msg.includes('hi') || msg.includes('hey')) {
+    if (msg.includes('hello') || msg.includes('hi') || msg.includes('hey')) || msg.includes('yo')){
         return "Hello friend! Very nice to meet you! How can I be helping you today? 🙏";
     } else if (msg.includes('help') || msg.includes('problem')) {
         return "No worries friend! First, have you tried turning it off and on again? This fixes 99.9% of all problems!";
@@ -145,7 +145,7 @@ function getBotResponse(userMessage) {
         return "Ah yes! Our game is very good! Top quality! Just click the download button and your computer will be very happy!";
     } else if (msg.includes('guardia')) {
         return "Guardia is number one! Best of the best! They dominate everything since 2021! Very legendary!";
-    } else if (msg.includes('thank')) {
+    } else if (msg.includes('thanks')) {
         return "No problem friend! Always happy to help! Please come again! 🙏";
     } else if (msg.includes('bye') || msg.includes('goodbye')) {
         return "Goodbye friend! Have a very nice day! Please come back anytime! 🙏";
@@ -187,3 +187,4 @@ function handleChatKeypress(event) {
         sendMessage();
     }
 }
+
