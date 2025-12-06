@@ -345,8 +345,8 @@
         // Load the character image from the uploaded file
         async function loadImage() {
             try {
-                const imageData = await window.fs.readFile('image.png');
-                const blob = new Blob([imageData], { type: 'image/png' });
+                const imageData = await window.fs.readFile('Icon.png');
+                const blob = new Blob([imageData], { type: 'Icon/png' });
                 const url = URL.createObjectURL(blob);
                 document.getElementById('chatIcon').src = url;
                 document.getElementById('headerIcon').src = url;
@@ -513,3 +513,4 @@
 </body>
 
 </html>
+
