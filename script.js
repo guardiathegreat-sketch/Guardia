@@ -49,7 +49,7 @@ function WindowsDownload() {
     
     // Create a hidden link and click it
     const link = document.createElement('a');
-    link.href = 'https://github.com/YOURUSERNAME/YOURREPO/releases/download/v1.0/WinBA.zip';
+    link.href = 'WinBA.zip';
     link.download = 'Windows-BraydonsAdventure.zip';
     link.style.display = 'none';
     document.body.appendChild(link);
