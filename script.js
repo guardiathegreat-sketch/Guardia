@@ -153,13 +153,24 @@ function getBotResponse(userMessage) {
         return "I am Rajesh Kumar from Indian tech support! I am here 24/7 to help you with any questions!";
     } else if (msg.includes('computer') || msg.includes('pc')) {
         return "Computer problems? No worries! First step is always restart. Second step is also restart. Very effective method!";
+    } else if (msg.includes('slow') || msg.includes('fast')) {
+        return "Ah yes! Computer speed issue is very common! Have you tried deleting your cache and cookies? This makes things go zoom zoom!";
+    } else if (msg.includes('virus') || msg.includes('malware')) {
+        return "Do not worry friend! I am expert in virus removal! Just run disk cleanup and install more RAM! Problem solved!";
+    } else if (msg.includes('error') || msg.includes('crash')) {
+        return "Error messages are normal friend! They are just computer's way of saying hello! Usually means you need more RAM!";
     } else {
         const randomResponses = [
             "I see I see... very interesting question friend! Let me consult my superior knowledge base...",
             "Ah yes this is common issue! Many people ask this same thing!",
             "Very good question friend! The answer is quite simple actually...",
             "Hmm... Have you checked if everything is plugged in properly first? This is step number one!",
-            "Excellent! I am understanding your problem! The solution is coming to my mind now..."
+            "Excellent! I am understanding your problem! The solution is coming to my mind now...",
+            "You know friend, this is actually very simple fix! Trust me, I have been doing this for very long time!",
+            "My supervisor is telling me that your problem can be fixed with one simple trick! Just clear your browser cache!",
+            "Ah I see the issue now! You need to update your drivers! This fixes almost everything my friend!",
+            "Have you tried using Google Chrome instead? It is much better browser for streaming and downloading!",
+            "I am thinking this is maybe Windows Update issue? Let me check my manual here... yes yes, this is it!"
         ];
         return randomResponses[Math.floor(Math.random() * randomResponses.length)];
     }
