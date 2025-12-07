@@ -46,16 +46,16 @@ function WindowsDownload() {
     
     btn.textContent = "DOWNLOADING...";
     msgElement.textContent = "Starting download...";
-    
-    // Create a hidden link and click it
+
+    // Create a hidden link and trigger GitHub download
     const link = document.createElement('a');
-    link.href = 'WinBA.zip';
-    link.download = 'WinBA.zip';
+    link.href = 'https://github.com/guardiathegreat-sketch/Guardia/releases/download/Windows/WinBa.zip';
+    link.download = 'WinBa.zip';
     link.style.display = 'none';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    
+
     setTimeout(() => {
         btn.textContent = originalText;
         msgElement.textContent = "Download started! Check your downloads folder 😎";
@@ -187,5 +187,6 @@ function handleChatKeypress(event) {
         sendMessage();
     }
 }
+
 
 
