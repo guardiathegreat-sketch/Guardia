@@ -302,9 +302,25 @@ img {
     }
 }
 
+@keyframes slideDown {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+}
+
 .chatbot-open #chatbot-window {
     display: flex;
     flex-direction: column;
+    animation: slideUp 0.3s;
+}
+
+.chatbot-closed #chatbot-window {
+    animation: slideDown 0.3s forwards;
 }
 
 .chatbot-header {

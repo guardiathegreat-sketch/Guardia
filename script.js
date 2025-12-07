@@ -12,20 +12,19 @@ function showPage(pageName) {
 }
 
 // real visitor counter using storage
-async function initVisitorCount() {
+function initVisitorCount() {
     const counter = document.getElementById('visitor-count');
     if (!counter) return;
     
     try {
-        // get current count
-        let result = await window.storage.get('visitor-count', true);
-        let count = result ? parseInt(result.value) : 0;
+        // get current count from localStorage
+        let count = parseInt(localStorage.getItem('visitor-count')) || 0;
         
         // increment by 1 for this visit
         count += 1;
         
         // save new count
-        await window.storage.set('visitor-count', count.toString(), true);
+        localStorage.setItem('visitor-count', count.toString());
         
         // display it
         counter.textContent = count;
