@@ -11,27 +11,28 @@ function showPage(pageName) {
     }
 }
 
-// real visitor counter using storage
-function initVisitorCount() {
+// real visitor counter using server
+async function initVisitorCount() {
     const counter = document.getElementById('visitor-count');
     if (!counter) return;
     
     try {
-        // get current count from localStorage
-        let count = parseInt(localStorage.getItem('visitor-count')) || 0;
-        
-        // increment by 1 for this visit
-        count += 1;
-        
-        // save new count
-        localStorage.setItem('visitor-count', count.toString());
-        
-        // display it
-        counter.textContent = count;
+        // increment counter on server
+        const response = await fetch('/api/visitor-count', {
+            method: 'POST'
+        });
+        const data = await response.json();
+        counter.textContent = data.count;
     } catch (error) {
-        // if storage fails, just show a default number
-        counter.textContent = '1337';
-        console.log('Storage not available');
+        // if server fails, try to get current count
+        try {
+            const response = await fetch('/api/visitor-count');
+            const data = await response.json();
+            counter.textContent = data.count;
+        } catch (err) {
+            counter.textContent = '∞';
+            console.log('Server not available');
+        }
     }
 }
 
