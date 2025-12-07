@@ -11,29 +11,14 @@ function showPage(pageName) {
     }
 }
 
-// real visitor counter using server
+// visitor counter with random numbers
 async function initVisitorCount() {
     const counter = document.getElementById('visitor-count');
     if (!counter) return;
     
-    try {
-        // increment counter on server
-        const response = await fetch('/api/visitor-count', {
-            method: 'POST'
-        });
-        const data = await response.json();
-        counter.textContent = data.count;
-    } catch (error) {
-        // if server fails, try to get current count
-        try {
-            const response = await fetch('/api/visitor-count');
-            const data = await response.json();
-            counter.textContent = data.count;
-        } catch (err) {
-            counter.textContent = '∞';
-            console.log('Server not available');
-        }
-    }
+    // Generate random number between 69000 and 420000
+    const randomCount = Math.floor(Math.random() * (420000 - 69000 + 1)) + 69000;
+    counter.textContent = randomCount;
 }
 
 // initialize counter when page loads
