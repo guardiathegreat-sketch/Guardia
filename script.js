@@ -41,7 +41,7 @@ window.addEventListener('load', initVisitorCount);
 
 function WindowsDownload() {
     const msgElement = document.getElementById('download-msg');
-    const btn = document.querySelector('.download-btn');
+    const btn = document.querySelector('.downloadWin-btn');
     const originalText = btn.textContent;
     
     btn.textContent = "DOWNLOADING...";
@@ -49,7 +49,7 @@ function WindowsDownload() {
     
     // Create a hidden link and click it
     const link = document.createElement('a');
-    link.href = 'https://github.com/guardiathegreat-sketch/Guardia/blob/main/WinBA.zip';
+    link.href = 'WinBA.zip';
     link.download = 'WinBA.zip';
     link.style.display = 'none';
     document.body.appendChild(link);
