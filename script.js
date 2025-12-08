@@ -3,11 +3,23 @@ function showPage(pageName) {
     const pages = document.querySelectorAll('.page');
     pages.forEach(page => {
         page.classList.remove('active');
+        // Stop any videos on inactive pages
+        const videos = page.querySelectorAll('video');
+        videos.forEach(video => {
+            video.pause();
+        });
     });
     
     const selectedPage = document.getElementById(pageName);
     if (selectedPage) {
         selectedPage.classList.add('active');
+        // Autoplay video on game page
+        if (pageName === 'game') {
+            const video = selectedPage.querySelector('video');
+            if (video) {
+                video.play();
+            }
+        }
     }
 }
 
