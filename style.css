@@ -23,26 +23,6 @@ marquee {
     border: 5px solid blue;
 }
 
-.scrolling-banner {
-    background: red;
-    color: yellow;
-    padding: 10px;
-    font-size: 24px;
-    font-weight: bold;
-    border: 5px solid blue;
-    overflow: hidden;
-    animation: scroll 8s linear infinite;
-}
-
-@keyframes scroll {
-    0% {
-        transform: translateX(100%);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
-}
-
 .container {
     max-width: 900px;
     margin: 0 auto;
