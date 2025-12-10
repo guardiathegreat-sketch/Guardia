@@ -36,28 +36,7 @@ async function initVisitorCount() {
 // initialize counter when page loads
 window.addEventListener('load', initVisitorCount);
 
-function WindowsDownload() {
-    const msgElement = document.getElementById('download-msg');
-    const btn = document.querySelector('.downloadWin-btn');
-    const originalText = btn.textContent;
-    
-    btn.textContent = "DOWNLOADING...";
-    msgElement.textContent = "Starting download...";
 
-    // Create a hidden link and trigger GitHub download
-    const link = document.createElement('a');
-    link.href = 'https://github.com/guardiathegreat-sketch/Guardia/releases/download/Windows/WinBa.zip';
-    link.download = 'WinBa.zip';
-    link.style.display = 'none';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-
-    setTimeout(() => {
-        btn.textContent = originalText;
-        msgElement.textContent = "Download started! Check your downloads folder 😎";
-    }, 1000);
-}
 
 
 // easter egg: konami code
@@ -195,6 +174,7 @@ function handleChatKeypress(event) {
         sendMessage();
     }
 }
+
 
 
 
