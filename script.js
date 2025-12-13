@@ -23,6 +23,78 @@ function showPage(pageName) {
     }
 }
 
+function WindowsDownload() {
+    const msgElement = document.getElementById('download-msg');
+    const btn = document.querySelector('.downloadWin-btn');
+    const originalText = btn.textContent;
+    
+    btn.textContent = "DOWNLOADING...";
+    msgElement.textContent = "Starting download...";
+
+    // Create a hidden link and trigger GitHub download
+    const link = document.createElement('a');
+    link.href = 'https://github.com/guardiathegreat-sketch/Guardia/releases/download/Windows/win64.zip';
+    link.download = 'WinBa.zip';
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    setTimeout(() => {
+        btn.textContent = originalText;
+        msgElement.textContent = "Download started! Check your downloads folder 😎";
+    }, 1000);
+}
+
+
+function MacDownload() {
+    const msgElement = document.getElementById('download-msg');
+    const btn = document.querySelector('.downloadMac-btn');
+    const originalText = btn.textContent;
+    
+    btn.textContent = "DOWNLOADING...";
+    msgElement.textContent = "Starting download...";
+
+    // Create a hidden link and trigger GitHub download
+    const link = document.createElement('a');
+    link.href = 'https://github.com/guardiathegreat-sketch/Guardia/releases/download/Mac/osx64.zip';
+    link.download = 'WinBa.zip';
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    setTimeout(() => {
+        btn.textContent = originalText;
+        msgElement.textContent = "Download started! Check your downloads folder 😎";
+    }, 1000);
+}
+
+
+function LinuxDownload() {
+    const msgElement = document.getElementById('download-msg');
+    const btn = document.querySelector('.downloadLinux-btn');
+    const originalText = btn.textContent;
+    
+    btn.textContent = "DOWNLOADING...";
+    msgElement.textContent = "Starting download...";
+
+    // Create a hidden link and trigger GitHub download
+    const link = document.createElement('a');
+    link.href = 'https://github.com/guardiathegreat-sketch/Guardia/releases/download/Linux/linux64.zip';
+    link.download = 'WinBa.zip';
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    setTimeout(() => {
+        btn.textContent = originalText;
+        msgElement.textContent = "Download started! Check your downloads folder 😎";
+    }, 1000);
+}
+
+
 // visitor counter with random numbers
 async function initVisitorCount() {
     const counter = document.getElementById('visitor-count');
